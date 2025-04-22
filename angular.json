@@ -87,6 +87,7 @@
               "zone.js",
               "zone.js/testing"
             ],
+            "proxyConfig": "proxy.conf.json",
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
