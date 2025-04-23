@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AlbumsService } from '../../services/albums.service';
 import { ContactService } from '../../services/contact.service';
@@ -8,7 +8,7 @@ import { ContactService } from '../../services/contact.service';
   selector: 'app-contact',
   imports: [CommonModule, ReactiveFormsModule],
   template: `
-    <form [formGroup]="sendMessageForm" (submit)="sendMessage()">
+    <form [formGroup]="sendMessageForm">
       <label for="name">Name</label>
       <input type="text" id="name" formControlName="name">
       <label for="email">Email</label>
@@ -22,21 +22,32 @@ import { ContactService } from '../../services/contact.service';
 })
 export class ContactComponent {
 
-  albumsService = inject(AlbumsService);
-  contactService = inject(ContactService);
+  sendMessageForm: FormGroup;
 
-  sendMessageForm = new FormGroup({
-    name: new FormControl(''),
-    email: new FormControl(''),
-    message: new FormControl('')
-  });
+  constructor(private fb: FormBuilder, private contactService: ContactService) {
+    this.sendMessageForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      message: ['', Validators.required]
+    });
+  }
+  successMessage = '';
+  errorMessage = '';
 
   sendMessage() {
-    this.contactService.sendMessage(
-      this.sendMessageForm.value.name ?? '',
-      this.sendMessageForm.value.email ?? '',
-      this.sendMessageForm.value.message ?? ''
-    );
-  }
+    if (this.sendMessageForm.invalid) return;
 
-}
+    this.contactService.sendMessage(this.sendMessageForm.value).subscribe({
+      next: () => {
+        this.successMessage = 'Message sent!';
+        this.errorMessage = '';
+        this.sendMessageForm.reset();
+      },
+      error: (error) => {
+        this.errorMessage = 'Failed to send message.';
+        this.successMessage = '';
+        console.error(error);
+      }
+    });
+  }
+  }
