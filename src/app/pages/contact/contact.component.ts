@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AlbumsService } from '../../services/albums.service';
+import { ContactService } from '../../services/contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -14,7 +15,7 @@ import { AlbumsService } from '../../services/albums.service';
       <input type="email" id="email" formControlName="email">
       <label for="message">Message</label>
       <textarea id="message" formControlName="message"></textarea>
-      <button type="submit" [disabled]="sendMessageForm.invalid">Send</button>
+      <button type="submit" (click)="sendMessage()">Send</button>
     </form>
   `,
   styles: ``
@@ -22,6 +23,7 @@ import { AlbumsService } from '../../services/albums.service';
 export class ContactComponent {
 
   albumsService = inject(AlbumsService);
+  contactService = inject(ContactService);
 
   sendMessageForm = new FormGroup({
     name: new FormControl(''),
@@ -30,7 +32,7 @@ export class ContactComponent {
   });
 
   sendMessage() {
-    this.albumsService.sendMessage(
+    this.contactService.sendMessage(
       this.sendMessageForm.value.name ?? '',
       this.sendMessageForm.value.email ?? '',
       this.sendMessageForm.value.message ?? ''

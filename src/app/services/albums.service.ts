@@ -14,13 +14,4 @@ export class AlbumsService {
   getAllAlbums() {
     return this.http.get<any[]>(this.apiUrl);
   }
-
-  sendMessage(name: string, email: string, message: string) {
-    const body = {
-      name,
-      email,
-      message
-    };
-    return this.http.post('http://localhost:3000/api/contact', body);
-  }
 }
