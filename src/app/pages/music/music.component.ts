@@ -6,7 +6,7 @@ import { AlbumsService } from '../../services/albums.service';
 
 @Component({
   selector: 'app-music',
-  imports: [NgFor, AlbumsComponent],
+  imports: [AlbumsComponent],
   template: `
 
     <app-albums></app-albums>

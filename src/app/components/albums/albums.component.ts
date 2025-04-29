@@ -3,20 +3,25 @@ import { AlbumInfo } from '../../interfaces/album-info';
 import { AlbumsService } from '../../services/albums.service';
 import { NgFor } from '@angular/common';
 import { NgIf } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
 
 
 @Component({
   selector: 'app-albums',
-  imports: [NgFor, NgIf],
+  imports: [NgFor, NgIf, RouterModule],
   template: `
-<div *ngIf="albums.length">
-  <div *ngFor="let album of albums">
+<div *ngIf="albums.length; else noAlbums">
+  <div *ngFor="let album of albums.slice().reverse()">
     <h3>{{ album.albumTitle }}</h3>
-    <img class="album-img" [src]="album.coverImageUrl" alt="">
+    <a [routerLink]="['/album', album.albumId ]"><img class="album-img" [src]="album.coverImageUrl" alt=""></a>
 
   </div>
 </div>
 
+<ng-template #noAlbums>
+  <p>No albums to display.</p>
+</ng-template>
 
   `,
   styles: `
@@ -29,6 +34,7 @@ import { NgIf } from '@angular/common';
 export class AlbumsComponent implements OnInit {
 
   albums: AlbumInfo[] = []
+  @Input() album!: AlbumInfo;
 
   constructor(private albumService: AlbumsService) {
 
