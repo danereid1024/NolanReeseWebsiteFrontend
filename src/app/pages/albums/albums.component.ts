@@ -37,7 +37,7 @@ export class AlbumsComponent {
       this.album = albums.find(a => a.albumId === albumId);
 
       if (this.album?.spotifyId) {
-        const embedUrl = `https://open.spotify.com/embed/album/${this.album.spotifyId}?utm_source=generator`;
+        const embedUrl = `https://open.spotify.com/embed/album/${this.album.spotifyId}?utm_source=generator&theme=0`;
         this.embedSrc = this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
       }
     });
