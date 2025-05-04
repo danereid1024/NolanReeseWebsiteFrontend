@@ -14,8 +14,7 @@ import { RouterModule } from '@angular/router';
 <div *ngIf="albums.length; else noAlbums">
   <div *ngFor="let album of albums.slice().reverse()">
     <h3>{{ album.albumTitle }}</h3>
-    <a [routerLink]="['/album', album.albumId ]"><img class="album-img" [src]="album.coverImageUrl" alt=""></a>
-
+    <a [routerLink]="['/album', album.albumId ]"><img class="album-img" [src]="album.coverImageUrl" [alt]="album.albumTitle + ' cover art'"></a>
   </div>
 </div>
 

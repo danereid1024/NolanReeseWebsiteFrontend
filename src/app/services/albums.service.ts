@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { AlbumInfo } from '../interfaces/album-info';
 
 @Injectable({
   providedIn: 'root'

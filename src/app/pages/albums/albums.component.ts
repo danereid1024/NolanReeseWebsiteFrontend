@@ -1,29 +1,45 @@
 import { Component, inject } from '@angular/core';
 import { AlbumInfo } from '../../interfaces/album-info';
-import { TrackInfo } from '../../interfaces/track-info';
 import { ActivatedRoute } from '@angular/router';
 import { AlbumsService } from '../../services/albums.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-albums',
-  imports: [],
-  template: `<h1>Album {{albums?.albumTitle}}</h1>
-
-
-<iframe style="border-radius:12px" [src]="'https://open.spotify.com/embed/track/' + trackId + '?utm_source=generator'" width="100%" height="352" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-
-    `,
-  styles:``
+  template: `
+    <div *ngIf="album">
+      <iframe 
+        width="100%" 
+        height="380" 
+        [src]="embedSrc" 
+        frameborder="0" 
+        allowtransparency="true" 
+        allow="encrypted-media">
+      </iframe>
+    </div>
+  `,
+  standalone: true,
+  imports: [NgIf]
 })
 export class AlbumsComponent {
+  album: AlbumInfo | undefined;
+  embedSrc: SafeResourceUrl | undefined;
 
-albums: AlbumInfo | undefined;
-tracks: TrackInfo | undefined;
-trackList: TrackInfo[] | undefined;
-route: ActivatedRoute = inject(ActivatedRoute);
-albumsService = inject(AlbumsService);
-trackId: string | undefined;
+  private route = inject(ActivatedRoute);
+  private albumsService = inject(AlbumsService);
+  private sanitizer = inject(DomSanitizer);
 
-constructor() {
-}
+  ngOnInit(): void {
+    const albumId = Number(this.route.snapshot.paramMap.get('albumId'));
+
+    this.albumsService.getAllAlbums().subscribe(albums => {
+      this.album = albums.find(a => a.albumId === albumId);
+
+      if (this.album?.spotifyId) {
+        const embedUrl = `https://open.spotify.com/embed/album/${this.album.spotifyId}?utm_source=generator`;
+        this.embedSrc = this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
+      }
+    });
+  }
 }
