@@ -4,11 +4,9 @@ import { Component } from '@angular/core';
   selector: 'app-home',
   imports: [],
   template: `
-  <h1>NOLAN REESE</h1>
-  <h3>TELLING STORIES THROUGH SOUND</h3>
+    <h1>NOLAN REESE</h1>
+    <h3>TELLING STORIES THROUGH SOUND</h3>
   `,
-  styles: ``
+  styles: ``,
 })
-export class HomeComponent {
-
-}
+export class HomeComponent {}

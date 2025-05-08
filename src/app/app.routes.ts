@@ -4,20 +4,19 @@ import { MusicComponent } from './pages/music/music.component';
 import { ContactComponent } from './pages/contact/contact.component';
 
 export const routes: Routes = [
-    {
-        path: '',
-        component: HomeComponent,
-        title: 'Home Page',
-    },
-    {
-        path: 'music',
-        component: MusicComponent,
-        title: 'Music Page',
-    },
-    {
-        path: 'contact',
-        component: ContactComponent,
-        title: 'Contact Page',
-    }
-    
+  {
+    path: '',
+    component: HomeComponent,
+    title: 'Home Page',
+  },
+  {
+    path: 'music',
+    component: MusicComponent,
+    title: 'Music Page',
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
+    title: 'Contact Page',
+  },
 ];
