@@ -7,21 +7,16 @@ import { AlbumsService } from '../../services/albums.service';
 @Component({
   selector: 'app-music',
   imports: [AlbumsComponent],
-  template: `
-
-    <app-albums></app-albums>
-
-  `,
-  styles: ``
+  template: ` <app-albums></app-albums> `,
+  styles: ``,
 })
 export class MusicComponent {
-
-  musicFilteredList: AlbumInfo[] = []
-  musicList: AlbumInfo[] = []
+  musicFilteredList: AlbumInfo[] = [];
+  musicList: AlbumInfo[] = [];
   albumService = inject(AlbumsService);
 
   constructor(private elementRef: ElementRef) {
-    this.albumService.getAllAlbums().subscribe(albums => {
+    this.albumService.getAllAlbums().subscribe((albums) => {
       this.musicFilteredList = albums;
       this.musicList = this.musicFilteredList;
     });

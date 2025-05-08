@@ -6,7 +6,6 @@ import { NgIf } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 
-
 @Component({
   selector: 'app-albums',
   imports: [NgFor, NgIf, RouterModule],
@@ -21,18 +20,16 @@ import { RouterModule } from '@angular/router';
 <ng-template #noAlbums>
   <p>No albums to display.</p>
 </ng-template>
-
   `,
   styles: `
   .album-img {
     width: 500px;
     height: 500px;
   }
-  `
+  `,
 })
 export class AlbumsComponent implements OnInit {
-
-  albums: AlbumInfo[] = []
+  albums: AlbumInfo[] = [];
   @Input() album!: AlbumInfo;
 
   constructor(private albumService: AlbumsService) {
@@ -44,7 +41,7 @@ export class AlbumsComponent implements OnInit {
         console.log('Albums received:', data);
         this.albums = data;
       },
-      error: (err) => console.error('Error fetching albums:', err)
+      error: (err) => console.error('Error fetching albums:', err),
     });
   }
 }
