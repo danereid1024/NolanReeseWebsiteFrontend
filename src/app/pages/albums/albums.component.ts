@@ -8,6 +8,12 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-albums',
   template: `
+    <br>
+<br>
+<br>
+<br>
+<br>
+<br>
     <div *ngIf="album">
       <iframe 
         width="100%" 

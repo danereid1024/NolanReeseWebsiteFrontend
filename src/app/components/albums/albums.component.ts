@@ -10,9 +10,14 @@ import { RouterModule } from '@angular/router';
   selector: 'app-albums',
   imports: [NgFor, NgIf, RouterModule],
   template: `
+    <br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div *ngIf="albums.length; else noAlbums">
   <div *ngFor="let album of albums.slice().reverse()">
-    <h3>{{ album.albumTitle }}</h3>
     <a [routerLink]="['/album', album.albumId ]"><img class="album-img" [src]="album.coverImageUrl" [alt]="album.albumTitle + ' cover art'"></a>
   </div>
 </div>
