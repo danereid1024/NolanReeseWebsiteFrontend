@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AlbumsComponent } from './albums.component';
+import { ShowEpSingleComponent } from './show-ep-single.component';
 
-describe('MusicComponent', () => {
-  let component: AlbumsComponent;
-  let fixture: ComponentFixture<AlbumsComponent>;
+describe('ShowEpSingleComponent', () => {
+  let component: ShowEpSingleComponent;
+  let fixture: ComponentFixture<ShowEpSingleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AlbumsComponent]
+      imports: [ShowEpSingleComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AlbumsComponent);
+    fixture = TestBed.createComponent(ShowEpSingleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

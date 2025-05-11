@@ -1,51 +1,24 @@
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, inject } from '@angular/core';
+import { NgFor } from '@angular/common';
 import { AlbumInfo } from '../../interfaces/album-info';
-import { ActivatedRoute } from '@angular/router';
+import { ShowAlbumComponent } from '../../components/show-album/show-album.component';
 import { AlbumsService } from '../../services/albums.service';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-albums',
-  template: `
-    <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-    <div *ngIf="album">
-      <iframe 
-        width="100%" 
-        height="380" 
-        [src]="embedSrc" 
-        frameborder="0" 
-        allowtransparency="true" 
-        allow="encrypted-media">
-      </iframe>
-    </div>
-  `,
-  standalone: true,
-  imports: [NgIf]
+  imports: [ShowAlbumComponent],
+  template: ` <app-show-album></app-show-album> `,
+  styles: ``,
 })
 export class AlbumsComponent {
-  album: AlbumInfo | undefined;
-  embedSrc: SafeResourceUrl | undefined;
+  musicFilteredList: AlbumInfo[] = [];
+  musicList: AlbumInfo[] = [];
+  albumService = inject(AlbumsService);
 
-  private route = inject(ActivatedRoute);
-  private albumsService = inject(AlbumsService);
-  private sanitizer = inject(DomSanitizer);
-
-  ngOnInit(): void {
-    const albumId = Number(this.route.snapshot.paramMap.get('albumId'));
-
-    this.albumsService.getAllAlbums().subscribe(albums => {
-      this.album = albums.find(a => a.albumId === albumId);
-
-      if (this.album?.spotifyId) {
-        const embedUrl = `https://open.spotify.com/embed/album/${this.album.spotifyId}?utm_source=generator&theme=0`;
-        this.embedSrc = this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
-      }
+  constructor(private elementRef: ElementRef) {
+    this.albumService.getAllAlbums().subscribe((albums) => {
+      this.musicFilteredList = albums;
+      this.musicList = this.musicFilteredList;
     });
   }
 }

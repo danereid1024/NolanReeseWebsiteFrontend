@@ -1,4 +1,4 @@
-export interface AlbumInfo {
+export interface SingleEpInfo {
   id: number;
   spotifyId: string;
   title: string;

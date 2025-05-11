@@ -7,10 +7,10 @@ import { RouterModule } from '@angular/router';
 
 
 @Component({
-  selector: 'app-albums',
+  selector: 'app-show-album',
   imports: [NgFor, NgIf, RouterModule],
   template: `
-    <br>
+<br>
 <br>
 <br>
 <br>
@@ -18,7 +18,7 @@ import { RouterModule } from '@angular/router';
 <br>
 <div *ngIf="albums.length; else noAlbums">
   <div *ngFor="let album of albums.slice().reverse()">
-    <a [routerLink]="['/album', album.albumId ]"><img class="album-img" [src]="album.coverImageUrl" [alt]="album.albumTitle + ' cover art'"></a>
+    <a [routerLink]="['/album', album.id ]"><img class="album-img" [src]="album.coverImageUrl" [alt]="album.title + ' cover art'"></a>
   </div>
 </div>
 
@@ -33,7 +33,7 @@ import { RouterModule } from '@angular/router';
   }
   `,
 })
-export class AlbumsComponent implements OnInit {
+export class ShowAlbumComponent implements OnInit {
   albums: AlbumInfo[] = [];
   @Input() album!: AlbumInfo;
 
