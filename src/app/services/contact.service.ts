@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ContactService {
-  private apiUrl = 'nolanreesewebsitebackend-awcugbb7befxdvdq.westus2-01.azurewebsites.net/api/contact';
+  private apiUrl = 'https://nolanreesewebsitebackend-awcugbb7befxdvdq.westus2-01.azurewebsites.net/api/contact';
 
 
   constructor(private http: HttpClient) {}
