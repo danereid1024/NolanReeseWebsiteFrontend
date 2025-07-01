@@ -16,10 +16,10 @@ export class EpSinglesComponent {
   musicList: SingleEpInfo[] = [];
   albumService = inject(AlbumsService);
 
-  constructor(private elementRef: ElementRef) {
-    this.albumService.getAllEPsSingles().subscribe((singlesEP) => {
-      this.musicFilteredList = singlesEP;
-      this.musicList = this.musicFilteredList;
-    });
-  }
+  // constructor(private elementRef: ElementRef) {
+  //   this.albumService.getAllEPsSingles().subscribe((singlesEP) => {
+  //     this.musicFilteredList = singlesEP;
+  //     this.musicList = this.musicFilteredList;
+  //   });
+  // }
 }

@@ -7,11 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class ContactService {
 
-  private apiUrl = 'http://localhost:3000/api/contact';
+  // private apiUrl = 'http://localhost:3000/api/contact';
 
   constructor(private http: HttpClient) {}
 
-  sendMessage(contactData: any): Observable<any> {
-    return this.http.post(this.apiUrl, contactData);
-  }
+  // sendMessage(contactData: any): Observable<any> {
+  //   return this.http.post(this.apiUrl, contactData);
+  // }
 }

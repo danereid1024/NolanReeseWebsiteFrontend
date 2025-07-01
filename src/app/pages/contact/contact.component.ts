@@ -63,7 +63,7 @@ import { ContactService } from '../../services/contact.service';
         <textarea class="form-textarea" id="message" formControlName="message" name="message" placeholder="Your message" ></textarea>
       </div>
     </div>
-    <button class="form-submit" type="submit" (click)="sendMessage()">Send Message</button>
+    <!-- <button class="form-submit" type="submit" (click)="sendMessage()">Send Message</button> -->
   </form>
 
 </section>
@@ -157,20 +157,20 @@ export class ContactComponent {
   successMessage = '';
   errorMessage = '';
 
-  sendMessage() {
-    if (this.sendMessageForm.invalid) return;
+  // sendMessage() {
+  //   if (this.sendMessageForm.invalid) return;
 
-    this.contactService.sendMessage(this.sendMessageForm.value).subscribe({
-      next: () => {
-        this.successMessage = 'Message sent!';
-        this.errorMessage = '';
-        this.sendMessageForm.reset();
-      },
-      error: (error) => {
-        this.errorMessage = 'Failed to send message.';
-        this.successMessage = '';
-        console.error(error);
-      },
-    });
-  }
+  //   this.contactService.sendMessage(this.sendMessageForm.value).subscribe({
+  //     next: () => {
+  //       this.successMessage = 'Message sent!';
+  //       this.errorMessage = '';
+  //       this.sendMessageForm.reset();
+  //     },
+  //     error: (error) => {
+  //       this.errorMessage = 'Failed to send message.';
+  //       this.successMessage = '';
+  //       console.error(error);
+  //     },
+  //   });
+  // }
 }

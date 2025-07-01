@@ -39,13 +39,13 @@ export class PlayAlbumComponent {
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.albumsService.getAllAlbums().subscribe(albums => {
-      this.album = albums.find(a => a.id === id);
+    // this.albumsService.getAllAlbums().subscribe(albums => {
+    //   this.album = albums.find(a => a.id === id);
 
-      if (this.album?.spotifyId) {
-        const embedUrl = `https://open.spotify.com/embed/album/${this.album.spotifyId}?utm_source=generator&theme=0`;
-        this.embedSrc = this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
-      }
-    });
+    //   if (this.album?.spotifyId) {
+    //     const embedUrl = `https://open.spotify.com/embed/album/${this.album.spotifyId}?utm_source=generator&theme=0`;
+    //     this.embedSrc = this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
+    //   }
+    // });
   }
 }

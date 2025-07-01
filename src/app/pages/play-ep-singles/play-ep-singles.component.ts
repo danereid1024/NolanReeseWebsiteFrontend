@@ -39,13 +39,13 @@ export class PlayEpSinglesComponent {
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.albumsService.getAllEPsSingles().subscribe(singleEP => {
-      this.singleEP = singleEP.find(a => a.id === id);
+    // this.albumsService.getAllEPsSingles().subscribe(singleEP => {
+    //   this.singleEP = singleEP.find(a => a.id === id);
 
-      if (this.singleEP?.spotifyId) {
-        const embedUrl = `https://open.spotify.com/embed/album/${this.singleEP.spotifyId}?utm_source=generator&theme=0`;
-        this.embedSrc = this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
-      }
-    });
+    //   if (this.singleEP?.spotifyId) {
+    //     const embedUrl = `https://open.spotify.com/embed/album/${this.singleEP.spotifyId}?utm_source=generator&theme=0`;
+    //     this.embedSrc = this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
+    //   }
+    // });
   }
 }
