@@ -15,10 +15,10 @@ export class AlbumsComponent {
   musicList: AlbumInfo[] = [];
   albumService = inject(AlbumsService);
 
-  // constructor(private elementRef: ElementRef) {
-  //   this.albumService.getAllAlbums().subscribe((albums) => {
-  //     this.musicFilteredList = albums;
-  //     this.musicList = this.musicFilteredList;
-  //   });
-  // }
+  constructor(private elementRef: ElementRef) {
+    this.albumService.getAllAlbums().subscribe((albums) => {
+      this.musicFilteredList = albums;
+      this.musicList = this.musicFilteredList;
+    });
+  }
 }

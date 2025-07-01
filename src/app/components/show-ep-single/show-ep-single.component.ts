@@ -39,12 +39,12 @@ export class ShowEpSingleComponent {
 
   }
   ngOnInit(): void {
-    // this.albumService.getAllEPsSingles().subscribe({
-    //   next: (data) => {
-    //     console.log('Albums received:', data);
-    //     this.singlesEP = data;
-    //   },
-    //   error: (err) => console.error('Error fetching albums:', err),
-    // });
+    this.albumService.getAllEPsSingles().subscribe({
+      next: (data) => {
+        console.log('Albums received:', data);
+        this.singlesEP = data;
+      },
+      error: (err) => console.error('Error fetching albums:', err),
+    });
   }
 }

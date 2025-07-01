@@ -41,12 +41,12 @@ export class ShowAlbumComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    // this.albumService.getAllAlbums().subscribe({
-    //   next: (data) => {
-    //     console.log('Albums received:', data);
-    //     this.albums = data;
-    //   },
-    //   error: (err) => console.error('Error fetching albums:', err),
-    // });
+    this.albumService.getAllAlbums().subscribe({
+      next: (data) => {
+        console.log('Albums received:', data);
+        this.albums = data;
+      },
+      error: (err) => console.error('Error fetching albums:', err),
+    });
   }
 }

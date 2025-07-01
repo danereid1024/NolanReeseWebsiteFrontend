@@ -5,16 +5,16 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AlbumsService {
-  // private apiUrl = 'http://localhost:3000/api/album'; 
-  // private apiUrl2 = 'http://localhost:3000/api/singles-ep'; 
+  private apiUrl = 'nolanreesewebsitebackend-awcugbb7befxdvdq.westus2-01.azurewebsites.net/api/album'; 
+  private apiUrl2 = 'nolanreesewebsitebackend-awcugbb7befxdvdq.westus2-01.azurewebsites.net/api/singles-ep'; 
 
   constructor(private http: HttpClient) { }
 
   getAllAlbums() {
-    // return this.http.get<any[]>(this.apiUrl);
+    return this.http.get<any[]>(this.apiUrl);
   }
   getAllEPsSingles() {
-    // return this.http.get<any[]>(this.apiUrl2);
+    return this.http.get<any[]>(this.apiUrl2);
   }
 
 }
