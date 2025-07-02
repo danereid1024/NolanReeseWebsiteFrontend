@@ -2,11 +2,11 @@
 <nav class="navbar">
   <a href="#" class="nav-brand">NOLAN REESE</a>
   <div class="nav-links" [class.active]="isMenuOpen">
-    <a routerLink="/music" routerLinkActive="active">Albums</a>
-    <a routerLink="/show-singles-ep" routerLinkActive="active">Singles and EPs</a>
-    <a href="#works">Featured Work</a>
-    <a href="#about">About</a>
-    <a routerLink="/contact" routerLinkActive="active">Contact</a>
+    <a routerLink="/music" routerLinkActive="active" (click)="toggleMenu()">Albums</a>
+    <a routerLink="/show-singles-ep" routerLinkActive="active" (click)="toggleMenu()">Singles and EPs</a>
+    <a href="#works" (click)="toggleMenu()">Featured Work</a>
+    <a href="#about" (click)="toggleMenu()">About</a>
+    <a routerLink="/contact" routerLinkActive="active" (click)="toggleMenu()">Contact</a>
   </div>
   <button
     class="hamburger"
@@ -28,14 +28,17 @@
   <div class="footer-content">
     <p>© 2024 Nolan Reese. All rights reserved.</p>
     <div class="social-links">
-      <a href="#" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.instagram.com/nolan_reese/" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-instagram"></i>
       </a>
-      <a href="#" target="_blank" rel="noopener noreferrer">
+       <a href="https://x.com/NolanLReese" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://www.youtube.com/@nolanreese003" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-youtube"></i>
       </a>
       <a href="#" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-soundcloud"></i>
+        <i class="fab fa-spotify"></i>
       </a>
     </div>
   </div>

@@ -240,6 +240,7 @@
   animation-delay: -4s;
 }
 
+
 @keyframes float {
   0%,
   100% {
@@ -326,5 +327,31 @@
 
   .cta-button {
     padding: 1rem 2rem;
+  }
+}
+
+/* Default (Desktop) Layout */
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* hidden by default on mobile */
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* adjust based on navbar height */
+    right: 0;
+    background-color: #000; /* match your theme */
+    width: 100%;
+    text-align: right;
+    padding: 1rem 2rem;
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    display: flex; /* shown when isMenuOpen is true */
   }
 }
