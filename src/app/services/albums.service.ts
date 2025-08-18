@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AlbumsService {
-  private apiUrl = 'https://nolanreesewebsitebackend-awcugbb7befxdvdq.westus2-01.azurewebsites.net/api/album'; 
-  private apiUrl2 = 'https://nolanreesewebsitebackend-awcugbb7befxdvdq.westus2-01.azurewebsites.net/api/singles-ep'; 
+  private apiUrl = 'https://nolan-reese-website-backend.vercel.app/api/album';
+  private apiUrl2 ='https://nolan-reese-website-backend.vercel.app/api/singles-ep';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getAllAlbums() {
     return this.http.get<any[]>(this.apiUrl);
@@ -16,5 +16,4 @@ export class AlbumsService {
   getAllEPsSingles() {
     return this.http.get<any[]>(this.apiUrl2);
   }
-
 }
