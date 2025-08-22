@@ -6,8 +6,9 @@ import {
   HostListener,
 } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import {RouterModule, RouterOutlet} from '@angular/router';
 import { RouterLink } from '@angular/router';
+import { routes} from './app.routes';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 
@@ -15,6 +16,7 @@ import { FooterComponent } from './components/footer/footer.component';
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterLink, RouterOutlet],
+
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
