@@ -5,8 +5,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class AlbumsService {
-  private apiUrl = 'nolan-reese-website-backend.vercel.app/api/album';
-  private apiUrl2 ='nolan-reese-website-backend.vercel.app/api/singles-ep';
+  private apiUrl = 'https://nolanreesewebsitebackend-awcugbb7befxdvdq.westus2-01.azurewebsites.net/api/album';
+  private apiUrl2 = 'https://nolanreesewebsitebackend-awcugbb7befxdvdq.westus2-01.azurewebsites.net/api/singles-ep';
 
   constructor(private http: HttpClient) {}
 
