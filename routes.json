@@ -2,7 +2,7 @@
   "routes": [
     {
       "route": "/*",
-      "serve": "/index.html",
+      "serve": "dist/nolan-reese-website/browser/index.html",
       "statusCode": 200
     }
   ]
