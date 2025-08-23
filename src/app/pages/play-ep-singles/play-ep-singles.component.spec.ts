@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PlayEpSinglesComponent } from './play-ep-singles.component';
+import {provideHttpClient} from '@angular/common/http';
+import {provideHttpClientTesting, HttpTestingController} from '@angular/common/http/testing';
+import { provideRouter} from '@angular/router';
 
 describe('PlayEpSinglesComponent', () => {
   let component: PlayEpSinglesComponent;
@@ -8,7 +11,8 @@ describe('PlayEpSinglesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PlayEpSinglesComponent]
+      imports: [PlayEpSinglesComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
     })
     .compileComponents();
 

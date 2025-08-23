@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AlbumsComponent } from './play-album.component';
+import { PlayAlbumComponent } from './play-album.component';
 
-describe('AlbumsComponent', () => {
-  let component: AlbumsComponent;
-  let fixture: ComponentFixture<AlbumsComponent>;
+describe('PlayAlbumComponent', () => {
+  let component: PlayAlbumComponent;
+  let fixture: ComponentFixture<PlayAlbumComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AlbumsComponent]
+      imports: [PlayAlbumComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AlbumsComponent);
+    fixture = TestBed.createComponent(PlayAlbumComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -21,3 +21,8 @@ describe('AlbumsComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+describe('ngOnInit', () => {
+  it('should get all albums from api', () => {
+
+  })
+})

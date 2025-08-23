@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ShowEpSingleComponent } from './show-ep-single.component';
+import {provideHttpClient} from '@angular/common/http';
+import {provideHttpClientTesting, HttpTestingController} from '@angular/common/http/testing';
+import { provideRouter} from '@angular/router';
 
 describe('ShowEpSingleComponent', () => {
   let component: ShowEpSingleComponent;
@@ -8,7 +10,8 @@ describe('ShowEpSingleComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ShowEpSingleComponent]
+      imports: [ShowEpSingleComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])]
     })
     .compileComponents();
 
